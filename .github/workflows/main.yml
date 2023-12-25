@@ -175,7 +175,7 @@ jobs:
       with:
         name: "${{ matrix.name }}-${{ matrix.compiler }}"
         path: |
-          "build/ci/StreamFX.vcxproj"
+          "${{ github.workspace }}/build/ci/StreamFX.vcxproj"
 
   macos:
     strategy:
@@ -319,7 +319,7 @@ jobs:
       with:
         name: "${{ matrix.name }}-${{ matrix.compiler }}"
         path: |
-          "build/ci/RelWithDebInfo/StreamFX.plugin"
+          "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin"
 
   ubuntu:
     strategy:
