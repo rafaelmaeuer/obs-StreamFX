@@ -170,10 +170,10 @@ jobs:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
         cmake --build "build/ci" --config ${{ env.CMAKE_BUILD_TYPE }} --target StreamFX
-    - name: "Archive artifacts"
+    - name: "Upload artifacts"
       uses: actions/upload-artifact@v3
       with:
-        name: "${{ matrix.name }}-${{ matrix.compiler }}"
+        name: "StreamFX-${{ matrix.name }}-${{ matrix.compiler }}"
         path: "${{ github.workspace }}\\build\\ci\\RelWithDebInfo\\StreamFX.dll"
 
   macos:
@@ -313,11 +313,13 @@ jobs:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
         cmake --build "build/ci" --config RelWithDebInfo --target StreamFX
-    - name: "Archive artifacts"
+    - name: 'Archive artifacts'
+      run: tar -cvf StreamFX.tar "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin"
+    - name: "Upload artifacts"
       uses: actions/upload-artifact@v3
       with:
-        name: "${{ matrix.name }}-${{ matrix.compiler }}"
-        path: "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin/"
+        name: "StreamFX-${{ matrix.name }}-${{ matrix.compiler }}"
+        path: StreamFX.tar
 
   ubuntu:
     strategy:
