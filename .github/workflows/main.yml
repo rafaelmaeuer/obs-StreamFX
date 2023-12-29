@@ -314,7 +314,7 @@ jobs:
       run: |
         cmake --build "build/ci" --config RelWithDebInfo --target StreamFX
     - name: 'Archive artifacts'
-      run: tar -cjvf StreamFX.tar -C "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin" .
+      run: tar -cjvf StreamFX.tar -C "${{ github.workspace }}/build/ci/RelWithDebInfo" .
     - name: "Upload artifacts"
       uses: actions/upload-artifact@v3
       with:
