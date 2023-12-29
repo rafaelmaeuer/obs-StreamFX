@@ -174,8 +174,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: "${{ matrix.name }}-${{ matrix.compiler }}"
-        path: |
-          "${{ github.workspace }}/build/ci/StreamFX.vcxproj"
+        path: "${{ github.workspace }}\\build\\ci\\RelWithDebInfo\\StreamFX.dll"
 
   macos:
     strategy:
@@ -318,8 +317,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: "${{ matrix.name }}-${{ matrix.compiler }}"
-        path: |
-          "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin"
+        path: "${{ github.workspace }}/build/ci/RelWithDebInfo/StreamFX.plugin/"
 
   ubuntu:
     strategy:
